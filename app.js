@@ -1,19 +1,24 @@
 import {getProducts, getCashiers, getCategories, getSubCategories, sendSale} from "./apiCalls.js";
 import { isPhoneNumberValid } from "./utils.js";  
-
 const loading=document.getElementById("loading-div");
 const display=document.getElementById("form-display");
-document.addEventListener("DOMContentLoaded", function() {display.style.display="none";
-loading.style.display="block";
+document.addEventListener("DOMContentLoaded", function() {display.style.display="none"; loading.style.display="block";} );
+const cashiers = await getCashiers();  
+const products = await getProducts();
+const categories = await getCategories();
+const subCategories = await getSubCategories();
+const prices={};
+Promise.all([cashiers, products, categories, subCategories]).then(function(){ loading.style.display="none"; display.style.display="block"; });
+
+
+
 setCashiers();
 setProducts();
 setCategories();
 setSubCategories();
 changeSubCategories();
 setPrice();
-setTimeout(function(){ loading.style.display="none"; display.style.display="block"; }, 3000);
 
-} );
 
 const submitButton=document.getElementById("submit-button");
 submitButton.addEventListener("click", submitSale);
@@ -22,8 +27,6 @@ submitButton.addEventListener("click", submitSale);
   
 
   async function setCashiers(){
- const cashiers = await getCashiers();  
- console.log("I work!");
 //  this constant gets the value of the promise
 const select=document.getElementById("cashiers");
 cashiers.forEach(cashier => {
@@ -34,10 +37,9 @@ cashiers.forEach(cashier => {
 });
 };
 
-const prices={};
+
 
 async function setProducts(){
-  const products=await getProducts();
   const select=document.getElementById("products");
   products.forEach(product => {
     const option = document.createElement("option");
@@ -49,7 +51,6 @@ async function setProducts(){
 };
 
 async function setCategories(){
-  const categories=await getCategories();
   const select1=document.getElementById("categories");
   categories.forEach(category => {
     const option = document.createElement("option");
@@ -60,7 +61,6 @@ async function setCategories(){
   };
 
   async function setSubCategories(){
-    const subCategories=await getSubCategories();
     const select2=document.getElementById("sub-categories");
     subCategories.forEach(subCategory => {
       const option = document.createElement("option");
@@ -91,7 +91,7 @@ async function setCategories(){
       if (selectProducts.options[selectProducts.selectedIndex].value=="placeholder") price.value="";
       else price.value=prices[selectProducts.options[selectProducts.selectedIndex].value];
     });
-  }
+  };
  
   function submitSale(){
   const selectCashiers=document.getElementById("cashiers");
@@ -120,8 +120,6 @@ if (selectSubCategories.options[selectSubCategories.selectedIndex]!=selectSubCat
   
    sendSale(sale);
    alert("Sale sent successfully");
-
-
   };
  
 
