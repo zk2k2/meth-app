@@ -1,0 +1,29 @@
+
+
+#logo{
+    width: 500px;
+    height: 90px;
+    margin: 0 auto;
+    display: block;
+}
+
+#form-div{
+  height: 85%;
+}
+.dropdown{
+  border: 1px solid rgb(99, 99, 99);
+  width: 90%;
+}
+
+
+.label-class{
+  display: block;
+}
+
+#submit-button{
+  background-color: #1F8A70;
+}
+
+#reset-button{
+  background-color: #DDDDDD;
+}

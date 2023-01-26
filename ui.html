@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+  
+<script src="app.js" type="module">
+</script>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. White's Shop</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="bg-gray-900 w-full h-full flex shrink-0" id="main-background">
+  <!-- main background -->
+  
+ <div class="bg-white w-2/5 m-4  p-4 shrink-0 mx-auto rounded-md flex-col" id="form-div">
+  <div id="loading-div" class="hidden">
+    <div class="flex justify-center mt-32"><img src="./resources/loading.gif" alt="">
+    </div> 
+    <div class="flex justify-center"><h1>Processing your request...</h1></div>
+     
+  </div>
+
+
+  <div id="form-display">
+  <form action="" id="form">
+<!-- form body-->
+
+  <div class="img mb-8"><img id="logo" src="resources/logo.png" alt=""></div>
+
+  <div id="form" class="mx-auto flex col">
+      <div id="form-section-1" class="w-1/2">
+        <!-- Form section 1 -->
+
+       <div class="form-group mx-auto mb-4 ">
+        <label for="product-sold" class="label-class">Product sold</label>
+        <select name="products" class="w-64 h-8 dropdown" id="products">
+          <option value="placeholder" selected>Please select a product</option>
+        </select>
+       </div>
+
+       <div class="form-group mx-auto mb-4 ">
+        <label for="category" class="label-class">Category</label>
+        <select name="categories" class="w-64 h-8 dropdown" id="categories">
+          <option value="" selected>Please select a category</option>
+
+        </select>
+       </div>
+
+       <div class="form-group mx-auto mb-4 "> 
+    
+        <label for="category" class="label-class">Sub-category</label>
+        <select name="sub-categories" class="w-64 h-8 dropdown" id="sub-categories">
+          <option value="" selected>Please select a sub-category</option>
+
+        </select>
+       </div>
+
+       <div class="form-group mx-auto mb-4 ">
+        <label for="product-sold" class="label-class">Price</label>
+        <input type="text" class="w-64 h-8 dropdown" name="" id="price" value="" placeholder="Please select a product..." disabled>
+      </div>
+
+      </div>
+     
+      <div id="form-section-2" class="w-1/2">
+        <!-- Form section 2 -->
+        <div class="form-group mx-auto mb-4">
+          <label for="cashiers" class="label-class">Cashier</label>
+          <select name="cashiers" class="w-64 h-8 dropdown" id="cashiers">          
+            <option value="" selected>Please select a cashier</option>
+          </select>
+        </div>
+
+      <div class="form-group mx-auto mb-4">
+        <label for="customer-name" class="label-class" >Customer name</label>
+       <input type="text" class="input-field w-64 h-8 dropdown" id="customer-name" placeholder="Please enter a name...">
+      </div>
+
+      <div class="form-group mx-auto mb-4">
+        <label for="customer-number" class="label-class">Customer phone number</label>
+       <input type="text" class="input-field w-64 h-8 dropdown" id="phone-number" placeholder="Please enter a phone number...">
+      </div>
+
+      </div>
+      
+     
+      
+     
+  
+      
+  </div>
+  
+  <div class="form-group mx-auto">
+    <button class="w-full h-4 btn text-white h-12 mt-8 rounded-md" id="submit-button">VALIDATE PURCHASE</button>
+   </div>
+   <div class="form-group mx-auto mb-4" >
+    <button class="w-full h-4 btn text-black h-12 mt-4 rounded-md" id="reset-button">RESET</button>
+   </div>
+ </div>
+</div>
+</form>
+</div>
+</body>
+</html>
